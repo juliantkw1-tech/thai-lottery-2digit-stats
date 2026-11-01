@@ -5,19 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>2 Digits — สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล</title>
 <meta name="description" content="สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล ย้อนหลังทุกงวด แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง ใช้งานแบบออฟไลน์ได้">
-<link rel="canonical" href="https://ssupawat.github.io/thai-lottery-2digit-stats/">
+<link rel="canonical" href="https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="art.">
-<meta property="og:url" content="https://ssupawat.github.io/thai-lottery-2digit-stats/">
+<meta property="og:site_name" content="2 Digits">
+<meta property="og:url" content="https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/">
 <meta property="og:title" content="2 Digits — สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล">
 <meta property="og:description" content="สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล ย้อนหลังทุกงวด แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง ใช้งานแบบออฟไลน์ได้">
-<meta property="og:image" content="https://ssupawat.github.io/thai-lottery-2digit-stats/icons/icon-512.png">
+<meta property="og:image" content="https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/icons/icon-512.png">
 <meta property="og:locale" content="th_TH">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2 Digits — สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล">
 <meta name="twitter:description" content="สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล ย้อนหลังทุกงวด แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง ใช้งานแบบออฟไลน์ได้">
-<meta name="twitter:image" content="https://ssupawat.github.io/thai-lottery-2digit-stats/icons/icon-512.png">
+<meta name="twitter:image" content="https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/icons/icon-512.png">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
@@ -47,6 +47,11 @@
     -webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);overflow-x:hidden;}
   .wrap{max-width:640px;margin:0 auto;padding:24px 16px 48px;position:relative;}
 
+  .languages{display:flex;justify-content:flex-end;gap:4px;margin-bottom:8px;}
+  .languages a{padding:8px 12px;border-radius:8px;color:var(--text-3);font-size:14px;text-decoration:none;}
+  .languages a[aria-current="page"]{background:var(--brand-100);color:var(--brand-700);font-weight:600;}
+  .languages a:focus-visible{outline:2px solid var(--brand-600);outline-offset:2px;}
+  @media(max-width:480px){.controls{flex-direction:column;}h1{font-size:24px;line-height:32px;}.sorttabs .tab{padding:10px 8px;}}
   header{text-align:center;padding:16px 4px 20px;}
   h1{font-size:26px;line-height:34px;margin:0 0 4px;font-weight:600;letter-spacing:-.02em;color:var(--text);}
   .meta{font-size:14px;color:var(--text-3);line-height:20px;}
@@ -148,6 +153,10 @@
 <body>
 <div class="wrap">
 
+  <nav class="languages" aria-label="Language">
+    <a href="./" lang="th" hreflang="th" data-language="th">ไทย</a>
+    <a href="?lang=en" lang="en" hreflang="en" data-language="en">English</a>
+  </nav>
   <header>
     <h1>เลขท้าย 2 ตัว ออกอะไรบ่อย?</h1>
     <div class="meta" id="meta">กำลังโหลด…</div>
@@ -183,22 +192,66 @@
 
   <div id="list" hidden></div>
 
-  <footer>แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง · ที่มา: <span id="sourceName">-</span> · ตรวจสอบล่าสุด: <span id="lastChecked">-</span><div class="site-link"><a href="https://ssupawat.github.io/">← art.</a></div></footer>
+  <footer>แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง · ที่มา: <span id="sourceName">-</span> · ตรวจสอบล่าสุด: <span id="lastChecked">-</span><div class="site-link"><a href="https://ssupawat.github.io/">ต้นฉบับโดย art.</a></div></footer>
 
 </div>
 
 <script>
+const isEnglish = new URLSearchParams(location.search).get('lang') === 'en';
+const t = (thai, english) => isEnglish ? english : thai;
+const times = (n) => isEnglish ? n + (n === 1 ? ' time' : ' times') : n + ' ครั้ง';
+document.documentElement.lang = isEnglish ? 'en' : 'th';
+document.querySelector('[data-language="' + (isEnglish ? 'en' : 'th') + '"]').setAttribute('aria-current', 'page');
+const translations = {
+  '2 Digits — สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล': '2 Digits — Thai Lottery Two-Digit Statistics',
+  'สถิติเลขท้าย 2 ตัว สลากกินแบ่งรัฐบาล ย้อนหลังทุกงวด แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง ใช้งานแบบออฟไลน์ได้': 'Explore historical Thai government lottery two-digit results. Select a number to see its draw dates. Available offline.',
+  'เลขท้าย 2 ตัว ออกอะไรบ่อย?': 'Which two-digit numbers appear most often?',
+  'กำลังโหลด…': 'Loading…',
+  'โหลดข้อมูลไม่ได้ · เชื่อมต่ออินเทอร์เน็ตแล้วลองใหม่': 'Unable to load data. Connect to the internet and try again.',
+  'ออกบ่อยสุด': 'Most frequent',
+  'ไม่เคยออกเลย': 'Not drawn in this period',
+  '5 ปี': '5 years', '10 ปี': '10 years', '20 ปี': '20 years',
+  'ค้นเลข เช่น 14': 'Find a number, e.g. 14',
+  'แผนผัง': 'Grid', 'ความถี่': 'Frequency', 'เลข': 'Number',
+  'ความถี่เลขท้าย 2 ตัว 00–99': 'Frequency of two-digit results, 00–99',
+  '0 ครั้ง': '0 times',
+  'แตะที่เลขเพื่อดูวันที่ออกแต่ละครั้ง · ที่มา: ': 'Select a number to see its draw dates. Sources: ',
+  ' · ตรวจสอบล่าสุด: ': ' · Last checked: ',
+  'ต้นฉบับโดย art.': 'Original by art.'
+};
+if (isEnglish) {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (translations[node.textContent]) node.textContent = translations[node.textContent];
+  }
+  document.querySelectorAll('[placeholder], [aria-label], meta[content]').forEach((el) => {
+    ['placeholder', 'aria-label', 'content'].forEach((attr) => {
+      const value = el.getAttribute(attr);
+      if (translations[value]) el.setAttribute(attr, translations[value]);
+    });
+  });
+  document.title = translations[document.title];
+  document.querySelector('meta[property="og:locale"]').content = 'en_GB';
+  const englishURL = 'https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/?lang=en';
+  document.querySelector('link[rel="canonical"]').href = englishURL;
+  document.querySelector('meta[property="og:url"]').content = englishURL;
+  document.querySelector('link[rel="manifest"]').href = 'manifest-en.json';
+}
+document.getElementById('search').setAttribute('aria-label', t('ค้นเลขสองหลัก', 'Find a two-digit number'));
 const FALLBACK = {draws: []};
 
 const thMonths = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-function formatThaiDate(iso) {
+const enMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function formatDate(iso) {
   const [y,m,d] = iso.split('-').map(Number);
-  return d + ' ' + thMonths[m-1] + ' ' + (y+543);
+  return d + ' ' + (isEnglish ? enMonths : thMonths)[m-1] + ' ' + (isEnglish ? y : y+543);
 }
 
-function formatThaiCheckedDate(ms) {
+function formatCheckedDate(ms) {
   const d = new Date(ms);
-  return d.getDate() + ' ' + thMonths[d.getMonth()] + ' ' + (d.getFullYear()+543);
+  const iso = new Intl.DateTimeFormat('en-CA', {timeZone: 'Asia/Bangkok', year: 'numeric', month: '2-digit', day: '2-digit'}).format(d);
+  return formatDate(iso);
 }
 
 let allDraws = [];
@@ -239,7 +292,7 @@ function toggleDetail(num, dates) {
     row.setAttribute('aria-expanded', 'false');
     openDetailEl = null;
   } else {
-    el.textContent = dates.length ? dates.slice().reverse().map(formatThaiDate).join(' · ') : 'ไม่เคยออกในช่วงที่เลือก';
+    el.textContent = dates.length ? dates.slice().reverse().map(formatDate).join(' · ') : t('ไม่เคยออกในช่วงที่เลือก', 'Not drawn in the selected period');
     el.classList.add('open');
     row.setAttribute('aria-expanded', 'true');
     openDetailEl = el;
@@ -258,8 +311,8 @@ function renderChip(elId, list, emptyText) {
   const shown = expanded ? list : list.slice(0, CHIP_PREVIEW);
   const remaining = list.length - shown.length;
   let html = '<span class="ns">' + shown.map((n) => '<span class="n">' + n + '</span>').join(' ') + '</span>';
-  if (remaining > 0) html += '<span class="more">+' + remaining + ' แตะดูทั้งหมด</span>';
-  else if (expanded && list.length > CHIP_PREVIEW) html += '<span class="more">แตะเพื่อย่อ</span>';
+  if (remaining > 0) html += '<span class="more">+' + remaining + t(' แตะดูทั้งหมด', ' — show all') + '</span>';
+  else if (expanded && list.length > CHIP_PREVIEW) html += '<span class="more">' + t('แตะเพื่อย่อ', 'Show less') + '</span>';
   el.innerHTML = html;
 }
 
@@ -269,7 +322,7 @@ function renderChip(elId, list, emptyText) {
     const numsId = chipId === 'hotChip' ? 'hotNums' : 'coldNums';
     chipExpanded[numsId] = !chipExpanded[numsId];
     chip.setAttribute('aria-expanded', String(chipExpanded[numsId]));
-    renderChip(numsId, chipData[numsId], numsId === 'hotNums' ? '—' : 'ไม่มี (ออกครบทุกเลขแล้ว)');
+    renderChip(numsId, chipData[numsId], numsId === 'hotNums' ? '—' : t('ไม่มี (ออกครบทุกเลขแล้ว)', 'None — all numbers have been drawn'));
   };
   chip.addEventListener('click', toggleChip);
   chip.addEventListener('keydown', (event) => {
@@ -284,21 +337,21 @@ function render() {
   const latestEl = document.getElementById('latest');
   if (allDraws.length) {
     const last = allDraws[allDraws.length-1];
-    latestEl.innerHTML = '<span class="lbl">ผลที่ออกแล้ว · งวด ' + formatThaiDate(last[0]) + '</span>' + last[1];
+    latestEl.innerHTML = '<span class="lbl">' + t('ผลที่ออกแล้ว · งวด ', 'Latest result · ') + formatDate(last[0]) + '</span>' + last[1];
   } else {
     latestEl.innerHTML = '';
   }
 
   if (!allDraws.length) {
-    document.getElementById('meta').textContent = 'ไม่มีข้อมูลพร้อมใช้งาน';
-    document.getElementById('hotLabel').textContent = 'ออกบ่อยสุด';
-    renderChip('hotNums', [], 'ไม่มีข้อมูล');
-    renderChip('coldNums', [], 'ไม่มีข้อมูล');
+    document.getElementById('meta').textContent = t('ไม่มีข้อมูลพร้อมใช้งาน', 'No data available');
+    document.getElementById('hotLabel').textContent = t('ออกบ่อยสุด', 'Most frequent');
+    renderChip('hotNums', [], t('ไม่มีข้อมูล', 'No data'));
+    renderChip('coldNums', [], t('ไม่มีข้อมูล', 'No data'));
     gridEl.textContent = '';
     gridDetail.hidden = true;
     document.getElementById('gridCard').hidden = true;
     list.hidden = false;
-    list.textContent = 'เชื่อมต่ออินเทอร์เน็ตแล้วลองใหม่';
+    list.textContent = t('เชื่อมต่ออินเทอร์เน็ตแล้วลองใหม่', 'Connect to the internet and try again');
     openDetailEl = null;
     return;
   }
@@ -311,14 +364,14 @@ function render() {
   const maxCount = entries.reduce((m,[,c]) => Math.max(m,c), 0);
 
   document.getElementById('meta').textContent = filtered.length
-    ? formatThaiDate(filtered[0][0]) + ' – ' + formatThaiDate(filtered[filtered.length-1][0]) + ' · รวม ' + filtered.length + ' งวด'
-    : 'ไม่มีข้อมูลในช่วงที่เลือก';
+    ? formatDate(filtered[0][0]) + ' – ' + formatDate(filtered[filtered.length-1][0]) + t(' · รวม ', ' · ') + filtered.length + t(' งวด', filtered.length === 1 ? ' draw' : ' draws')
+    : t('ไม่มีข้อมูลในช่วงที่เลือก', 'No data in the selected period');
 
   const hot = entries.filter(([,c]) => c === maxCount && c > 0).map(([n]) => n);
   const cold = entries.filter(([,c]) => c === 0).map(([n]) => n);
-  document.getElementById('hotLabel').textContent = 'ออกบ่อยสุด · ' + maxCount + ' ครั้ง';
+  document.getElementById('hotLabel').textContent = t('ออกบ่อยสุด · ', 'Most frequent · ') + times(maxCount);
   renderChip('hotNums', hot, '—');
-  renderChip('coldNums', cold, 'ไม่มี (ออกครบทุกเลขแล้ว)');
+  renderChip('coldNums', cold, t('ไม่มี (ออกครบทุกเลขแล้ว)', 'None — all numbers have been drawn'));
 
   const showMap = currentSort === 'map';
   document.getElementById('gridCard').hidden = !showMap;
@@ -341,7 +394,7 @@ function render() {
     if (currentSort === 'freq' && count !== lastCount) {
       const lbl = document.createElement('div');
       lbl.className = 'tier-label';
-      lbl.textContent = count + ' ครั้ง' + (count === maxCount && count > 0 ? ' — ออกบ่อยสุด' : '') + (count === 0 ? ' — ไม่เคยออกเลย' : '');
+      lbl.textContent = times(count) + (count === maxCount && count > 0 ? t(' — ออกบ่อยสุด', ' — most frequent') : '') + (count === 0 ? t(' — ไม่เคยออกเลย', ' — not drawn in this period') : '');
       frag.appendChild(lbl);
       lastCount = count;
     }
@@ -352,6 +405,7 @@ function render() {
     row.setAttribute('tabindex', '0');
     row.setAttribute('aria-expanded', 'false');
     row.setAttribute('aria-controls', 'detail-' + num);
+    row.setAttribute('aria-label', num + t(' ออก ', ' drawn ') + times(count));
     const pct = maxCount > 0 ? (count / maxCount * 100).toFixed(1) : 0;
     row.innerHTML = '<span class="num">' + num + '</span><div class="track"><div class="fill" style="width:' + pct + '%"></div></div><span class="cnt">' + count + '</span>';
     row.addEventListener('click', () => toggleDetail(num, dates));
@@ -372,7 +426,7 @@ function render() {
 }
 
 function renderGrid(entries, maxCount) {
-  document.getElementById('legendMax').textContent = maxCount + ' ครั้ง';
+  document.getElementById('legendMax').textContent = times(maxCount);
   const frag = document.createDocumentFragment();
   selectedCell = null;
   gridDetail.hidden = true;
@@ -384,7 +438,7 @@ function renderGrid(entries, maxCount) {
     cell.dataset.num = num;
     cell.dataset.level = level;
     cell.textContent = num;
-    cell.setAttribute('aria-label', num + ' ออก ' + count + ' ครั้ง');
+    cell.setAttribute('aria-label', num + t(' ออก ', ' drawn ') + times(count));
     cell.addEventListener('click', () => {
       if (selectedCell === cell) {
         cell.classList.remove('sel');
@@ -395,8 +449,8 @@ function renderGrid(entries, maxCount) {
       if (selectedCell) selectedCell.classList.remove('sel');
       cell.classList.add('sel');
       selectedCell = cell;
-      gridDetail.innerHTML = '<b>' + num + '</b>ออก ' + count + ' ครั้ง' +
-        (dates.length ? '<br>' + dates.slice().reverse().map(formatThaiDate).join(' · ') : ' ในช่วงที่เลือก');
+      gridDetail.innerHTML = '<b>' + num + '</b>' + t('ออก ', 'Drawn ') + times(count) +
+        (dates.length ? '<br>' + dates.slice().reverse().map(formatDate).join(' · ') : t(' ในช่วงที่เลือก', ' in the selected period'));
       gridDetail.hidden = false;
       gridDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
@@ -418,8 +472,8 @@ async function loadData() {
     payload = FALLBACK;
   }
   allDraws = payload.draws;
-  document.getElementById('sourceName').textContent = payload.source || '-';
-  document.getElementById('lastChecked').textContent = payload.lastChecked ? formatThaiCheckedDate(payload.lastChecked) : '-';
+  document.getElementById('sourceName').textContent = (isEnglish && payload.source ? payload.source.replace('สำนักงานสลากกินแบ่งรัฐบาล (2568+)', 'Government Lottery Office (2025 onward)').replace('ข้อมูลย้อนหลังจาก', 'Historical data from') : payload.source) || '-';
+  document.getElementById('lastChecked').textContent = payload.lastChecked ? formatCheckedDate(payload.lastChecked) : '-';
   render();
 }
 
@@ -461,6 +515,6 @@ if ('serviceWorker' in navigator) {
 
 loadData();
 </script>
-<script data-goatcounter="https://2digits.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
 </body>
 </html>

@@ -4,6 +4,18 @@
 
 อ้างอิงข้อมูลจาก [heart/Data-Set-Thai-Lotto](https://github.com/heart/Data-Set-Thai-Lotto)
 
+## Languages and live site
+
+- [ภาษาไทย](https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/)
+- [English](https://juliantkw1-tech.github.io/thai-lottery-2digit-stats/?lang=en)
+
+Use the language links at the top of the page. English dates use Gregorian years;
+Thai dates use Buddhist Era years. Both versions read the same unchanged draws.json
+and work offline after the first successful visit. The English install manifest
+opens the English version when launched from the home screen.
+
+Forked from [ssupawat/thai-lottery-2digit-stats](https://github.com/ssupawat/thai-lottery-2digit-stats).
+
 ## ฟีเจอร์
 
 - แผนผัง 10×10 ของเลข 00–99 สีเข้มตามความถี่ (หรือสลับเป็นรายการเรียงตามความถี่/ตามเลข)
@@ -39,7 +51,7 @@ python -m unittest discover -s tests -v
 
 ## สถิติผู้เข้าชม
 
-เว็บใช้ [GoatCounter](https://www.goatcounter.com/) นับจำนวนผู้เข้าชมแบบไม่ระบุตัวตน ไม่ใช้คุกกี้ และไม่ติดตามข้ามเว็บ
+สำเนานี้นำสคริปต์ GoatCounter ของเจ้าของต้นฉบับออกแล้ว
 
 ## ข้อมูล (`draws.json`)
 

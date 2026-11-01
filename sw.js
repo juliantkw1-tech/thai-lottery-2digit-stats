@@ -1,7 +1,10 @@
-const CACHE_NAME = 'lottery-stats-v17';
+const CACHE_NAME = 'lottery-stats-v18-bilingual';
 const ASSETS = [
   './',
   './index.html',
+  './?lang=en',
+  './index.html?lang=en',
+  './manifest-en.json',
   './draws.json',
   './manifest.json',
   './icons/icon-192.png',
